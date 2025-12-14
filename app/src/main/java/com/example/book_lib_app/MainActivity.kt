@@ -48,6 +48,7 @@ fun BookListScreen(viewModel: BookViewModel) {
 
     var title by remember { mutableStateOf("") }
     var author by remember { mutableStateOf("") }
+    var searchQuery by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -63,6 +64,26 @@ fun BookListScreen(viewModel: BookViewModel) {
         )
 
         Spacer(modifier = Modifier.height(12.dp))
+
+        //  Search Bar
+        TextField(
+            value = searchQuery,
+            onValueChange = {
+                searchQuery = it
+                viewModel.updateSearchQuery(it)
+            },
+            placeholder = { Text("Search by book title") },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            colors = TextFieldDefaults.colors(
+                focusedIndicatorColor = Color(0xFFBA68C8),
+                unfocusedIndicatorColor = Color(0xFFCE93D8),
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White
+            )
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         //  Book Title
         TextField(
