@@ -14,6 +14,7 @@ activity = "1.12.1"
 constraintlayout = "2.2.1"
 navigationRuntimeKtx = "2.9.6"
 foundation = "1.10.0"
+junitJunit = "4.12"
 
 
 
@@ -38,6 +39,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 
 
 

@@ -29,7 +29,7 @@ class BookViewModel(private val bookDao: BookDao) : ViewModel() {
                     }
                 }
             }
-                .flowOn(Dispatchers.IO) // This is CRITICAL for Room
+                .flowOn(Dispatchers.IO)
                 .collect { filteredBooks ->
                     _books.value = filteredBooks
                 }
@@ -41,7 +41,7 @@ class BookViewModel(private val bookDao: BookDao) : ViewModel() {
     }
 
     fun addBook(title: String, author: String) {
-        viewModelScope.launch(Dispatchers.IO) { // Run in background
+        viewModelScope.launch(Dispatchers.IO) {
             bookDao.insertBook(
                 Book(
                     title = title,
@@ -53,7 +53,7 @@ class BookViewModel(private val bookDao: BookDao) : ViewModel() {
     }
 
     fun deleteBook(book: Book) {
-        viewModelScope.launch(Dispatchers.IO) { // Run in background
+        viewModelScope.launch(Dispatchers.IO) {
             bookDao.deleteBook(book)
         }
     }
